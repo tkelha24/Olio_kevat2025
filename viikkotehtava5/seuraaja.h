@@ -9,7 +9,7 @@ private:
     string nimi;
 
 public:
-    Seuraaja* next;  // Linkitetyn listan seuraava solmu
+    Seuraaja* next;
 
     Seuraaja(string);
     string getNimi();

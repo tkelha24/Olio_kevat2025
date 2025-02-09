@@ -6,7 +6,7 @@ using namespace std;
 
 class Notifikaattori {
 private:
-    Seuraaja* seuraajat;  // Linkitetyn listan pää
+    Seuraaja* seuraajat;
 public:
     Notifikaattori();
     ~Notifikaattori();

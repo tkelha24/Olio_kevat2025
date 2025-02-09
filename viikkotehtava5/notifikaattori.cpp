@@ -15,19 +15,18 @@ Notifikaattori::~Notifikaattori() {
     }
 }
 
-// **Lisäys alkuun ("kiilaamalla")**
 void Notifikaattori::lisaa(Seuraaja* uusi) {
     if (!uusi) return;
 
-    uusi->next = seuraajat;  // Uusi alkio osoittaa vanhaan alkuun
-    seuraajat = uusi;        // Alku päivitetään osoittamaan uuteen alkioon
+    uusi->next = seuraajat;
+    seuraajat = uusi;
     cout<<"Notifikaattori lisaa seuraajan "<<uusi->getNimi()<<endl;
 }
 
 void Notifikaattori::poista(Seuraaja* poistettava) {
-    if (!seuraajat || !poistettava) return;  // Jos lista on tyhjä tai osoitin virheellinen, lopetetaan
+    if (!seuraajat || !poistettava) return;
 
-    if (seuraajat == poistettava) {  // Jos poistettava on ensimmäinen solmu
+    if (seuraajat == poistettava) {
         seuraajat = seuraajat->next;
         return;
     }
@@ -38,7 +37,7 @@ void Notifikaattori::poista(Seuraaja* poistettava) {
     }
 
     if (temp->next) {
-        temp->next = temp->next->next;  // Ohitetaan poistettava solmu
+        temp->next = temp->next->next;
     }
 }
 
@@ -52,7 +51,7 @@ void Notifikaattori::tulosta() {
 void Notifikaattori::postita(const string& viesti) {
     std::cout << "Notifikaattori postaa viestin: " << viesti <<endl;
 
-    if (!seuraajat) {  // Jos lista on tyhjä, lopetetaan
+    if (!seuraajat) {
         cout << "Ei seuraajia, viestia ei laheteta." <<endl;
         return;
     }
